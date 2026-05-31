@@ -1,0 +1,87 @@
+section .hero-div {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; */
+    overflow: hidden;
+}
+
+
+.tools-section {
+    padding: clamp(60px, 8vw, 120px) 20px;
+    background: linear-gradient(135deg, #eef7ff, #f9f9ff);
+    border-radius: 10px;
+}
+
+
+.def-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(25px, 4vw, 50px);
+}
+
+.def-card {
+    background: #ffffff;
+    padding: clamp(25px, 4vw, 50px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.def-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, #0077ff, #00c6ff);
+}
+
+.def-card.highlight {
+    background: linear-gradient(135deg, #0077ff, #00c6ff);
+    color: #ffffff;
+}
+
+.def-card.highlight::before {
+    display: none;
+}
+
+.def-card h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.def-card p {
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    line-height: 1.9;
+    margin-bottom: 15px;
+    color: inherit;
+}
+
+@media (hover: hover) {
+    .def-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .tools-section {
+        padding: 50px 15px;
+    }
+
+    .def-card {
+        border-radius: 15px;
+    }
+
+}

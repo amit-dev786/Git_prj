@@ -1,0 +1,186 @@
+.about-section {
+    width: 88%;
+    padding: clamp(50px, 8vw, 100px);
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #f7f4e9;
+}
+
+.about-section__inner {
+    display: flex;
+    gap: clamp(30px, 5vw, 60px);
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-section__content {
+    flex: 1 1 550px;
+}
+
+.about-section__content h2 {
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    margin-bottom: 20px;
+}
+
+.about-section__intro {
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    line-height: 1.7;
+    margin-bottom: 30px;
+    color: #f7f4ea;
+}
+
+.about-section__features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feature-card {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 18px 22px;
+    border-radius: 12px;
+    transition: 300ms ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.feature-card h4 {
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    margin-bottom: 5px;
+}
+
+.feature-card p {
+    font-size: clamp(0.85rem, 1vw, 0.95rem);
+    line-height: 1.6;
+    color: #dfd7d7;
+}
+
+.feature-card__icon {
+    font-size: clamp(28px, 3vw, 36px);
+    color: #00e0ff;
+    transform: translateY(15px);
+}
+
+.about-section__roadmap {
+    margin-top: 40px;
+}
+
+.about-section__roadmap h4 {
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    margin-bottom: 15px;
+}
+
+.about-section__roadmap ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-section__roadmap li {
+    display: flex;
+    align-items: center;
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
+    margin-bottom: 10px;
+}
+
+.roadmap-item__icon {
+    font-size: clamp(18px, 2vw, 22px);
+    color: #00ff9d;
+    margin-right: 8px;
+}
+
+.developer-card {
+    flex: 1 1 320px;
+    max-width: 380px;
+    padding: clamp(20px, 4vw, 40px);
+    border-radius: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: all 300ms ease;
+}
+
+.developer-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 224, 255, 0.25);
+}
+
+.developer-card__icon {
+    font-size: clamp(50px, 6vw, 70px);
+    color: #00e0ff;
+    margin-bottom: 15px;
+}
+
+.developer-card h3 {
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    margin-bottom: 8px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.developer-card__name {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+}
+
+.developer-card p {
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    opacity: 0.85;
+    margin: 6px 0;
+}
+
+.developer-card__bio {
+    margin-top: 12px;
+    font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+    line-height: 1.6;
+    opacity: 0.75;
+    color: #dcdcdc;
+}
+
+@media (max-width: 992px) {
+    .about-section__inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .feature-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-section__roadmap li {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .developer-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 50px 5%;
+    }
+
+    .feature-card {
+        padding: 15px;
+    }
+
+    .developer-card {
+        padding: 25px 15px;
+    }
+
+    .developer-card:hover {
+        transform: none;
+    }
+}

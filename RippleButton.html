@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            background: #040d15;
+        }
+        /* a{ */
+        .rippleBtn{
+            position: relative;
+            display: inline-block;
+            padding: 12px 36px;
+            margin: 10px;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            border: none;
+            border-radius: 40px;
+            overflow: hidden;
+            background: linear-gradient(90deg, #0162c8,#55e7fc);
+            cursor: pointer;
+        }
+        .rippleBtn:nth-child(2){
+            background: linear-gradient(90deg, #755bea,#ff72c0);
+        }
+        /* span{ */
+        .ripple{
+            position: absolute;
+            background: #fff;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            border-radius: 50%;
+            animation: animate 506ms linear infinite;
+            /* animation: animate 1s linear forwards; */
+            /* width: 0;
+            height: 0;
+            opacity: 0.5; */
+        }
+        @keyframes animate{
+            0%{
+                width: 0px;
+                height: 0px;
+                opacity: 0.5;
+            }
+            100%{
+                width: 500px;
+                height: 500px;
+                opacity: 0;
+            }
+              /* to{
+                width: 500px;
+                height: 500px;
+                opacity: 0;
+              } */
+            }
+    </style>
+</head>
+<body>
+    <a class="rippleBtn" href="#">Button</a>
+    <a class="rippleBtn" href="#">Button</a>
+    <script>
+        const rippleButton = document.querySelectorAll(".rippleBtn");
+        rippleButton.forEach(button => {
+            button.addEventListener("click", (e) => {
+
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+                // const x = e.clientX - button.getBoundingClientRect().left;
+                // const y = e.clientY - button.getBoundingClientRect().top;
+                
+                const ripple = document.createElement("span");
+                ripple.classList.add("ripple");
+                ripple.style.left = x + "px";
+                ripple.style.top = y + "px";
+                
+                // // Remove old ripple if any
+                // const oldRipple = button.querySelector(".ripple");
+                // if (oldRipple) oldRipple.remove();
+                
+                button.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove()
+                }, 500)
+            });
+        });
+    </script>
+</body>
+</html>

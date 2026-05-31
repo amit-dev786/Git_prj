@@ -1,0 +1,8 @@
+/**
+ * Hardware page–specific layout tweaks.
+ * Shared card and banner styles live in css/style.css (BEM + legacy aliases).
+ */
+
+.content-section {
+    scroll-margin-top: 6rem;
+}

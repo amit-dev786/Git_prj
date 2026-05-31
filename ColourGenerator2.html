@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+    <html>
+
+        <head>
+
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Color Generator</title>
+            <style>
+                .container {
+                    margin: 5% 33%;
+                    height: 55rem;
+                    width: 60rem;
+                    justify-content: center;
+                    align-items: center;
+                }
+                #colorContainer {
+                    margin: 22px;
+                    height: 25rem;
+                    width: 40rem;
+                    background-color: #53f3f8;
+                    border-radius: 12px;
+                    box-shadow: 0 0 9px 0.4px #c6c7c7;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    border: none;
+                }
+                .control {
+                    margin: 2rem;
+                    width: 100%;
+                    display: flex;
+                }
+                #inputColor {
+                    margin: 20px;
+                    padding-left: 18px;
+                    height: 6vh;
+                    width: 15vw;
+                    border: none;
+                    border-radius: 5px;
+                    box-shadow: 0 0 9px 0.4px #c6c7c7;
+                    font-size: 1.7rem;
+                    font-family: Arial, sans-serif;
+                    background: #ffffff;
+                    color: #2b2a2a;
+                }
+                #inputColor:focus {
+                    margin: 18px;
+                    padding-left: 18px;
+                    height: 4rem;
+                    width: 19.2rem;
+                    border: none;
+                    /* border: 2px solid #53f3f8; */
+                    border-radius: 5px;
+                    box-shadow: 0 0 12px 0.7px #c6c7c7;
+                    font-size: 1.75rem;
+                    transition: ease-in-out 300ms;
+                    font-family: Arial, sans-serif;
+                    background: #ffffff;
+                    color: #2b2a2a;
+                }
+                #btn {
+                    margin: 20px;
+                    height: 65px;
+                    width: 175px;
+                    border-radius: 40px;
+                    box-shadow: 0 0 9px 0.4px #c6c7c7;
+                    border: none;
+                    font-size: 1.7rem;
+                    transition: color 3s;
+                    font-family: Arial, sans-serif;
+                    justify-content: center;
+                    justify-items: center;
+                    align-items: center;
+                    background: white;
+                    display: flex;
+                    cursor: pointer;
+                }
+                #btn:active {
+                    margin: 18.5px;
+                    height: 70px;
+                    width: 180px;
+                    border-radius: 45px;
+                    box-shadow: 0 0 12px 0.7px #c6c7c7;
+                    border: none;
+                    background: #53f3f8;
+                    /* transition: ease-in-out -2s; */
+                    font-size: 1.8rem;
+                    font-family: Arial, sans-serif;
+                    justify-content: center;
+                    justify-items: center;
+                    align-items: center;
+                    display: flex;
+                    cursor: pointer;
+                }
+                .txt {
+                    font-size: 4rem;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+            </style>
+
+        </head>
+        <body>
+
+            <div class="container">
+                <div id="colorContainer">
+                    <span id="ColorCode" class="txt">#53f3f8</span>
+                    <!-- <span id="txt2" class="txt"></span> -->
+                </div>
+                <div class="control">
+                    <input type="text" id="inputColor" placeholder="Enter Hexa Color Code">
+                    <button id="btn">ChangeColor</button>
+               </div>
+
+            <script>
+
+                const colorContainer = document.querySelector("#colorContainer");
+                const ColorCode = document.querySelector("#ColorCode");
+                const button = document.querySelector("#btn");
+                const inputColor = document.querySelector("#inputColor");
+
+                
+                btn.addEventListener("click", () => {
+                    let changeClr = new Array();
+
+                    const arr = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+
+                    for( i = 0; i <= 5; i++){
+                        changeClr[i] = (arr[Math.floor(Math.random() * arr.length)]);
+                    }
+
+                    var hexa = "#" + changeClr[0] + changeClr[1] + changeClr[2] + changeClr[3] + changeClr[4] + changeClr[5];
+                    colorContainer.style.background = hexa;
+                    ColorCode.innerText = hexa;
+                    inputColor.value = null;
+
+                });
+
+                // if(colorContainer.style.background = "000"){
+                //     ColorCode.style.color = "#fff";
+                // }
+
+                inputColor.addEventListener("input", (clr) => {
+
+                    var colr = clr.target.value;
+                    if(colr.startsWith("#")){
+                        //console.log(colr.slice(1));
+                        ColorCode.innerText = colr;
+                        colorContainer.style.background = colr;
+                    }else{
+                        //console.log("#" + colr);
+                        ColorCode.innerText = "#" + colr;
+                        colorContainer.style.background = "#" + colr;
+                    }
+
+                });
+
+            </script>
+
+        </body>
+    </html>

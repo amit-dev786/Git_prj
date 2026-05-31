@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATER</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            background: #ebeef1;
+            align-items: center;
+            justify-content: center;
+        }
+        #head{
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        h1{
+            /* margin: auto;
+            text-align: center; */
+            padding-top: 5px;
+            margin-top: 0.5%;
+            font-size: 4rem;
+            letter-spacing: 3px;
+            font-weight: 900;
+            font-family: arial, sans-serif;
+            background-image: linear-gradient(145deg, #404040ec 10%, #24eee4bd 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+        /* img{
+            margin-top: 1.1%;
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #fcfcfccc 20%, #404040ec 80%);
+            backdrop-filter: blur(10px);
+            padding: 4px;
+        } */
+        #logo{
+            margin-top: 1.1%;
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            color: #404040;
+            font-size: 3rem;
+            padding-bottom: 3px;
+            /* font-family: Arial, sans-serif; */
+            /* font-family: 'Inter', 'sans-serif'; */
+            font-family: 'Consolas', 'monospace';
+            font-weight: 900;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 8px 8px 8px -1px #0a63a929, -8px -8px 8px -1px #f8f9fab3;
+            /* box-shadow: 10px 10px 10px -1px rgba(10,99,169,0.16), -10px -10px 10px -1px rgba(255,255,255,0.70); */
+        }
+        input, button, table{
+            font-family: consolas;
+            font-size: 1.9rem;
+            font-weight: 500;
+            border: none;
+            background: #ebeef1;
+            /* box-shadow: 10px 10px 10px -1px rgba(10,99,169,0.16), -10px -10px 10px -1px rgba(255,255,255,0.70); */
+        }
+        table{
+            margin: auto;
+            margin-top: 1.5%;
+            padding: 20px;
+            /* height: 600px;
+            width: 500px; */
+            border: none;
+            border-radius: 8px;
+            box-shadow: 6px 6px 6px -1px #0a63a929, -6px -6px 6px -1px #f8f9fab3;
+        }
+        td{
+            margin: auto;
+            height: 120px;
+            width: 130px;
+        }
+        button{
+            height: 80px;
+            width: 80px;
+            border: none;
+            border-radius: 50%;
+            margin: 10px;
+            transition: all 100ms ease;
+        }
+        #display{
+            margin-left: 10px;
+            padding-right: 20px;
+            height: 100px;
+            width: 96%;
+            font-size: 5rem;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            color: #404040ec;
+            text-align: right;
+            box-shadow: inset 6px 6px 6px -1px #0a63a929, inset -6px -6px 6px -1px #f8f9fab3;
+            transition: all 400ms ease;
+        }
+        .input-1{
+            font-weight: 800;
+            font-size: 1.9rem;
+            color: #404040bd;
+        }
+        .input-2{
+            font-weight: 800;
+            font-size: 1.9rem;
+            color: #12c512b6;
+        }
+        .input-3{
+            font-weight: 700;
+            color: rgba(238, 64, 34, 0.705);
+        }
+        button:hover{
+            height: 84px;
+            width: 84px;
+            font-size: 2.6rem;
+            /* padding: 0; */
+            box-shadow: 7px 7px 7px -1px #0a63a929, -7px -7px 7px -1px #ffffffb3;
+        }
+        input:focus{
+            outline: none;
+            /* box-shadow: inset 6px 6px 6px -1px #0a63a929, inset -6px -6px 6px -1px #ffffffb3; */
+        }
+        button:active{
+            height: 80px;
+            width: 80px;
+            font-size: 1.9rem;
+            box-shadow: inset 6px 6px 6px -1px #0a63a929, inset -6px -6px 6px -1px #ffffffb3;
+        }
+        /* button:active, input:active{
+            box-shadow: inset 6px 6px 6px -1px #0a63a929, inset -6px -6px 6px -1px #ffffffb3;
+        } */
+    </style>
+</head>
+<body>
+    <div id="head"><div id="logo">AB</div><h1>CALCULATER</h1></div>
+    <table>
+        <tr>
+            <td colspan="4"><input type="text" id="display" value="0" readonly></td>
+        </tr>
+        <tr>
+            <td><button class="input-3" data-action="clear">CLE</button></td>
+            <td><button class="input-3" data-action="delete">DEL</button></td>
+            <td><button class="input-2" data-value="%">%</button></td>
+            <td><button class="input-2" data-value="/">/</button></td>
+        </tr>
+        <tr>
+            <td><button class="input-1" data-value="7">7</button></td>
+            <td><button class="input-1" data-value="8">8</button></td>
+            <td><button class="input-1" data-value="9">9</button></td>
+            <td><button class="input-2" data-value="*">*</button></td>
+        </tr>
+        <tr>
+            <td><button class="input-1" data-value="4">4</button></td>
+            <td><button class="input-1" data-value="5">5</button></td>
+            <td><button class="input-1" data-value="6">6</button></td>
+            <td><button class="input-2" data-value="-">-</button></td>
+        </tr>
+        <tr>
+            <td><button class="input-1" data-value="1">1</button></td>
+            <td><button class="input-1" data-value="2">2</button></td>
+            <td><button class="input-1" data-value="3">3</button></td>
+            <td><button class="input-2" data-value="+">+</button></td>
+        </tr>
+        <tr>
+            <td><button class="input-1" data-value="0">0</button></td>
+            <td><button class="input-1" data-value="00">00</button></td>
+            <td><button class="input-1" data-value=".">.</button></td>
+            <td><button class="input-2" data-action="calculate">=</button></td>
+        </tr>
+    </table>
+    <script>
+        let display = document.getElementById('display');
+        let currentExpression = '0';
+        let lastKeyWasEquals = false;
+
+        function updateDisplay(){
+            display.value = currentExpression.substring(0, 15);
+        }
+
+
+        function handleAction(action) {
+            if(action === "clear") {
+                currentExpression = '0';
+                lastKeyWasEquals = false;
+            }
+            else if(action === "delete") {
+                if(currentExpression.length > 1  && currentExpression !== "Error") {
+                    currentExpression = currentExpression.slice(0, -1);
+                }else {
+                    currentExpression = 0;
+                }
+                lastKeyWasEquals = false;
+            }
+            else if (action === 'calculate') {
+                try {
+                    let calculation = currentExpression.replace(/%/g, '/100');
+                    const result = new Function('return ' + calculation)();
+                    
+                    if (result === Infinity || isNaN(result)) {
+                        currentExpression = 'Error';
+                    } else {
+                        currentExpression = (String(result).includes('.') ? Number(result).toFixed(5) : String(result));
+                        currentExpression = currentExpression.replace(/\.0+$/, ''); // Remove trailing .00000
+                    }
+                } catch (error) {
+                    currentExpression = 'Error';
+                }
+                lastKeyWasEquals = true;
+            }
+        }
+
+        function handleValue(value) {
+            const isOperator = ['+', '-', '*', '/', '%'].includes(value);
+            const lastChar = currentExpression.slice(-1);
+            const lastIsOperator = ['+', '-', '*', '/', '%'].includes(lastChar);
+
+            if (currentExpression === 'Error') {
+                 currentExpression = isOperator ? '0' : value;
+                 lastKeyWasEquals = false;
+            } else if (lastKeyWasEquals && !isOperator) {
+                currentExpression = value;
+                lastKeyWasEquals = false;
+            } else if (currentExpression === '0' && value !== '.') {
+                currentExpression = value;
+                lastKeyWasEquals = false;
+            } else if (isOperator && lastIsOperator) {
+                currentExpression = currentExpression.slice(0, -1) + value;
+            } else {
+                currentExpression += value;
+                lastKeyWasEquals = false;
+            }
+        }
+
+        function handleButtonClick(event) {
+            const button = event.target;
+            const value = button.getAttribute('data-value');
+            const action = button.getAttribute('data-action');
+
+            if (action) {
+                handleAction(action);
+            } else if (value) {
+                handleValue(value);
+            }
+
+            updateDisplay();
+        }
+
+        window.onload = function() {
+            document.querySelectorAll('button').forEach(button => {
+                button.addEventListener('click', handleButtonClick);
+            });
+            updateDisplay();
+        };
+
+        document.addEventListener('keydown', function(event) {
+
+            const key = event.key;
+
+            if (!isNaN(key)) {
+                handleValue(key);
+            }
+            else if (['+', '-', '*', '/', '%', '.'].includes(key)) {
+                handleValue(key);
+            }
+            else if (key === 'Enter' || key === '=') {
+                event.preventDefault();
+                handleAction('calculate');
+            }
+            else if (key === 'Backspace') {
+                handleAction('delete');
+            }
+            else if (key === 'Escape' || key === 'Delete') {
+                handleAction('clear');
+            }
+
+            updateDisplay();
+        });
+    </script>
+</body>
+</html>

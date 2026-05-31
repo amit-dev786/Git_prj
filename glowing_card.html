@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Workspace Card</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+   <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    }
+
+    body {
+    background: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    }
+
+    /* Card */
+    .card {
+    width: 420px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 40px;
+    /* border: 2px solid #4CAF50; */
+    /* box-shadow: 0 10px 25px rgba(0,0,0,0.08); */
+    transition: all 250ms ease-in-out;
+    }
+
+    .card:hover {
+      border-radius: 15px;
+      transform: translateY(-10px);
+      box-shadow: 0 0 10px #093
+    }
+
+    /* Logo Section */
+    .logo-wrapper {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin-bottom: 30px;
+    }
+
+    /* Main Circle */
+    .logo-circle {
+    width: 130px;
+    height: 130px;
+    background: #f8f8f8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 2;
+    }
+
+    .logo-circle img {
+    width: 60px;
+    }
+
+    /* Orbit container */
+    .orbit {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    top: -20px;
+    left: -20px;
+    border-radius: 50%;
+    animation: rotate 6s linear infinite;
+    }
+
+    /* Balls */
+    .ball {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    }
+
+    /* Violet Ball */
+    .violet {
+    background: #3f2bbd;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    }
+
+    /* Green Ball (180deg opposite) */
+    .green {
+    background: #1ca84b;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    }
+
+    /* Rotation Animation */
+    @keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+    }
+
+    /* Text Styling */
+    h2 {
+    color: #1e66d0;
+    margin-bottom: 15px;
+    font-size: 24px;
+    }
+
+    p {
+    color: #5c677d;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    }
+
+    /* Learn More Button */
+    .learn-more {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    }
+
+    .arrow-box {
+    width: 45px;
+    height: 45px;
+    background: #1ca84b;
+    color: white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    }
+
+    .learn-more span {
+    color: #1ca84b;
+    font-weight: 600;
+    }
+
+   </style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="logo-wrapper">
+    <div class="logo-circle">
+      <!-- Replace with your logo -->
+      <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="logo">
+    </div>
+
+    <!-- Rotating balls -->
+    <div class="orbit">
+      <span class="ball violet"></span>
+      <span class="ball green"></span>
+    </div>
+  </div>
+
+  <h2>Google Workspace</h2>
+
+  <p>
+    We are a authorized Google Workspace Premier Reseller/ Partner - 
+    Get Gmail, Docs, Drive, and Calendar for business. All you need to 
+    do your best work, together in one package that works seamlessly on all devices.
+  </p>
+
+  <div class="learn-more">
+    <div class="arrow-box">
+      →
+    </div>
+    <span>Learn More</span>
+  </div>
+
+</div>
+
+</body>
+</html>

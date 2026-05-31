@@ -1,0 +1,296 @@
+* {
+    box-sizing: border-box;
+}
+
+.hero-section {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(0);
+    pointer-events: none;
+}
+
+.hero-container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.hero-text {
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero-text h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text h1 span {
+    background: linear-gradient(90deg, #00f5a0, #00d9f5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #dcdcdc;
+    max-width: 750px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn--primary,
+.primary {
+    background: #00f5a0;
+    color: #111;
+}
+
+.btn--primary:hover,
+.primary:hover {
+    background: #00d9f5;
+    transform: translateY(-3px);
+}
+
+.btn--secondary,
+.secondary {
+    border: 2px solid #00f5a0;
+    color: #00f5a0;
+}
+
+.btn--secondary:hover,
+.secondary:hover {
+    background: #00f5a0;
+    color: #111;
+    transform: translateY(-3px);
+}
+
+.hardware-overview {
+    padding: 80px 20px;
+    background: linear-gradient(to right, #f4f9ff, #eef7ff);
+}
+
+.hardware-overview__inner {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hardware-overview__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.info-card {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+.info-card__title,
+.section-title {
+    font-size: 2rem;
+    color: #0077b6;
+    margin-bottom: 20px;
+    font-weight: 700;
+    position: relative;
+}
+
+.info-card__title::after,
+.section-title::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background: #00b4d8;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    border-radius: 3px;
+}
+
+.info-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.comparison-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    min-width: 600px;
+}
+
+.comparison-table caption {
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 25px;
+    color: #0077b6;
+}
+
+.comparison-table th {
+    background: #0077b6;
+    color: #fff;
+    padding: 18px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.comparison-table td {
+    padding: 18px;
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background: #f2f8ff;
+}
+
+.comparison-table tbody tr:hover {
+    background: #dff1ff;
+    transition: 0.3s;
+}
+
+.hardware-components .container {
+    width: 96%;
+}
+
+@media (max-width: 1024px) {
+    .hardware-overview__cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .info-card {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hardware-overview__cards {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card__title,
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 80%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .hardware-overview {
+        padding: 50px 15px;
+    }
+
+    .info-card {
+        padding: 25px;
+    }
+
+    .info-card__title,
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .info-card p {
+        font-size: 0.95rem;
+    }
+
+    .comparison-table caption {
+        font-size: 1.4rem;
+        padding: 15px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .info-card__title,
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .info-card p {
+        font-size: 0.85rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+}
